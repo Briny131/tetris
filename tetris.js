@@ -420,7 +420,7 @@ function clear_block(x){
 }
 
 function move(s,m){
-	let x=s.sort();
+	let x=sort(s);
 	ctx.fillStyle='#515151';
 	for(let i=1;;i++){
 		if(x.indexOf(x[x.length-1]-i)==-1){
@@ -433,13 +433,27 @@ function move(s,m){
 					ctx.fillRect(j*ge+1,(x[x.length-1])*ge+1,ge-2,ge-2);
 				}
 			}
-			x.unshift(x[x.length-1]-i);x.pop();x.sort();
+			x.unshift(x[x.length-1]-i);x.pop();x=sort(x);
 			i=0;
 		}
 		if(x[0]==0){
 			break;
 		}
 	}
+}
+
+function sort(x){
+	for(let i=0;i<x.length-1;i++)
+	{
+		for(let j=1;j<x.length-i;j++){
+			if(x[i]>x[i+j]){
+				let a=x[i];
+				x[i]=x[i+j];
+				x[i+j]=a;
+			}
+		}
+	}
+	return x;
 }
 
 
