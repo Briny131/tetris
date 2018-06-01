@@ -35,9 +35,11 @@ $(window).keydown(function(e){
 	let key=Number(e.originalEvent.keyCode);
 	switch (key) {
 		case 38:
+			if(t!=0)
 			change(dom);
 			break;
 		case 39:
+			if(t!=0)
 			right(dom);
 			break;
 		case 40:
@@ -49,6 +51,7 @@ $(window).keydown(function(e){
 			}						
 			break;
 		case 37:
+			if(t!=0)
 			left(dom);
 			break;
 		default:
@@ -120,6 +123,34 @@ window.onload=function(){
 		$(this).unbind('mousemove');
 		Time=(1-(e.clientX-38)/92)*Time;
 	});
+
+	$('.btn').click(function(){
+		if($(this).text()=='暂停'){
+			$(this).text('开始').removeClass('red').addClass('green');
+			clearTimeout(t);
+		}
+		else if($(this).text()=='重新开始'){
+			window.location.reload();
+		}
+		else{
+			$(this).text('暂停').removeClass('green').addClass('red');
+			t=setTimeout(down,Time,dom)
+		}
+	})
+
+	$('.btn').mousedown(function(){
+		if($(this).text()=='暂停'){
+			$(this).addClass('blackred');
+		}
+		else{
+			$(this).addClass('blackgreen');
+		}
+	})
+
+	$('.btn').mouseup(function(){
+
+			$(this).removeClass('blackred blackgreen');
+	})
 }
 
 function draw(x){
@@ -171,8 +202,10 @@ function select(b){
 	}
 	if(a==0)
 		t=setTimeout(down,Time,dom);
-	else
-		console.log('over')
+	else{
+		console.log('over');
+		$('.btn').text('重新开始').css({'width':80}).removeClass('red').addClass('green');
+	}
 }
 
 function left(x){
@@ -349,8 +382,11 @@ function down(x){
 			draw(po1);
 			select(po);
 		}
-		else 
+		else{
 			console.log('over');
+			$('.btn').text('重新开始').removeClass('red').addClass('green');
+		} 
+			
 	}
 }
 
