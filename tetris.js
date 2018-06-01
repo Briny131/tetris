@@ -421,6 +421,7 @@ function clear_block(x){
 
 function move(s,m){
 	let x=sort(s);
+	addcount(x.length);
 	ctx.fillStyle='#515151';
 	for(let i=1;;i++){
 		if(x.indexOf(x[x.length-1]-i)==-1){
@@ -454,6 +455,11 @@ function sort(x){
 		}
 	}
 	return x;
+}
+
+function addcount(x){
+	count+=(x*x);
+	$('.count div:last-child').text(count);
 }
 
 

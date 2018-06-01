@@ -47,7 +47,7 @@
 			background: #FC6868;
 			position: absolute;
 			left: 270px;
-			top: 150px;
+			top: 250px;
 		}
 		.red{
 			background: #FC6868;
@@ -61,12 +61,27 @@
 		.blackgreen{
 			background: #3B9639;
 		}
+		.count{
+			width: 150px;
+			height: 40px;
+			position: absolute;
+			top: 150px;
+			left: 270px;
+		}
+		.count>div{
+			float: left;
+			
+		}
 	</style>
 	<script src="g:/ccz/future/jquery.js"></script>
 </head>
 <body>
 	<canvas id='is'></canvas>
 	<canvas id="tip" width=100 height=100></canvas>
+	<div class="count">
+		<div>分数：</div>
+		<div>&nbsp;0</div>
+	</div>
 	<div class="btn ">暂停</div>
 	<div id="ui">设置</div>
 	<div id='set' class='en'>
