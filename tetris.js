@@ -1,35 +1,5 @@
-var block={
-	"s1":{
-		"pos":[1,2,2,2,2,3,3,3],
-		"color":"#FB4E4E"
-	},
-	"s2":{
-		"pos":[1,2,2,2,2,1,3,1],
-		"color":"#FB6BE2"
-	},
-	"q1":{
-		"pos":[1,2,1,3,2,3,3,3],
-		"color":"#AF6DFC"
-	},
-	"q2":{
-		"pos":[1,1,1,2,2,1,3,1],
-		"color":"#5CCEF9"
-	},
-	"fan":{
-		"pos":[1,1,1,2,2,1,2,2],
-		"color":"#5DF770"
-	},
-	"ll":{
-		"pos":[1,2,2,2,3,2,4,2],
-		"color":"#CCD833"
-	},
-	"T":{
-		"pos":[2,1,2,2,1,2,2,3],
-		"color":"#F97F1E"
-	}
-};
 var save=[],can;
-var sX=3,sY=-1,ge=20,Time=2000,tim,po,po1,dom,t,count=0;
+var sX=3,sY=-1,ge=20,Time=1000,tim,po,po1,dom,t,count=0;
 
 $(window).keydown(function(e){
 	let key=Number(e.originalEvent.keyCode);
@@ -121,7 +91,7 @@ window.onload=function(){
 	});
 	$('.o').mouseup(function(e){
 		$(this).unbind('mousemove');
-		Time=(1-(e.clientX-38)/92)*Time;
+		Time=(1-(e.clientX-38)/92)*1000;
 	});
 
 	$('.btn').click(function(){
